@@ -1,20 +1,28 @@
 export const globalOptions = {
   // quote widget refresh rate
   quoteRefresh: 300000, // 5 min
+
   // outter margin of all cubes
   elementMargin: "5%",
+
   // fix the bottom for macbooks with a notch
   aspectRatioFix: screen.width / screen.height,
+
   // opacity of the gif widget
   gifOpacity: "0.75",
+
   // opacity of the timetable
   tableOpacity: "0.5",
+
   // set the global border radius
   borderRadius: "30px",
+
   // the light color
   lightColor: "236, 240, 241", // flat ui clouds
+
   // the dark color
   darkColor: "44, 62, 80", // flat ui midnight blue
+
   // automatically adjust width and heigth of all elements to be equally spaced
   get elementHeight() {
     // need getter, because at this point elementMargin is not yet initialized when doing a direct calculation
@@ -24,12 +32,15 @@ export const globalOptions = {
     // need getter, because at this point elementMargin is not yet initialized when doing a direct calculation
     return `calc((100% - ${this.elementMargin} * 4) / 3)`;
   },
+
   get gif() {
     // system appearance gif change
+    // set the paths to your gifs here
     return window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "Gifs/gif-night.gif"
       : "Gifs/gif-day.gif";
   },
+
   // System Appearance color change
   get backColor() {
     return window.matchMedia("(prefers-color-scheme: dark)").matches
